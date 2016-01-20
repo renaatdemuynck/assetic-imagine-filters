@@ -1,8 +1,7 @@
 <?php
 namespace RDM\Assetic\Filter\Basic;
 
-use Assetic\Filter\FilterInterface;
-use Assetic\Asset\AssetInterface;
+use RDM\Assetic\Filter\AbstractImagineFilter;
 use Imagine\Image\ImagineInterface;
 use Imagine\Image\BoxInterface;
 use Imagine\Image\ImageInterface;
@@ -11,12 +10,8 @@ use Imagine\Filter\Basic\Thumbnail;
 /**
  * A thumbnail filter
  */
-class ThumbnailFilter implements FilterInterface
+class ThumbnailFilter extends AbstractImagineFilter
 {
-
-    protected $imagine;
-
-    protected $filter;
 
     /**
      * Constructs the Thumbnail filter with given width, height and mode
@@ -28,16 +23,6 @@ class ThumbnailFilter implements FilterInterface
      */
     public function __construct(ImagineInterface $imagine, BoxInterface $size, $mode = ImageInterface::THUMBNAIL_INSET, $filter = ImageInterface::FILTER_UNDEFINED)
     {
-        $this->imagine = $imagine;
-        $this->filter = new Thumbnail($size, $mode, $filter);
-    }
-
-    public function filterLoad(AssetInterface $asset)
-    {}
-
-    public function filterDump(AssetInterface $asset)
-    {
-        $image = $this->imagine->load($asset->getContent());
-        $asset->setContent($this->filter->apply($image));
+        parent::__construct($imagine, new Thumbnail($size, $mode, $filter));
     }
 }
