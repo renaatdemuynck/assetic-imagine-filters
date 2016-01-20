@@ -1,0 +1,19 @@
+{
+    "name": "renaatdemuynck/assetic-imagine-filters",
+    "description": "Assetic filters for the Imagine image manipulation library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Renaat De Muynck",
+            "email": "renaat.demuynck@gmail.com"
+        }
+    ],
+    "require": {
+        "kriswallsmith/assetic": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "RDM\\Assetic\\Filter\\": "src/"
+        }
+    }
+}
