@@ -6,6 +6,7 @@ use Assetic\Asset\AssetInterface;
 use Imagine\Image\ImagineInterface;
 use Imagine\Image\BoxInterface;
 use Imagine\Image\ImageInterface;
+use Imagine\Filter\Basic\Thumbnail;
 
 /**
  * A thumbnail filter
@@ -13,13 +14,9 @@ use Imagine\Image\ImageInterface;
 class ThumbnailFilter implements FilterInterface
 {
 
-    private $imagine;
+    protected $imagine;
 
-    private $size;
-
-    private $mode;
-
-    private $filter;
+    protected $filter;
 
     /**
      * Constructs the Thumbnail filter with given width, height and mode
@@ -32,9 +29,7 @@ class ThumbnailFilter implements FilterInterface
     public function __construct(ImagineInterface $imagine, BoxInterface $size, $mode = ImageInterface::THUMBNAIL_INSET, $filter = ImageInterface::FILTER_UNDEFINED)
     {
         $this->imagine = $imagine;
-        $this->size = $size;
-        $this->mode = $mode;
-        $this->filter = $filter;
+        $this->filter = new Thumbnail($size, $mode, $filter);
     }
 
     public function filterLoad(AssetInterface $asset)
@@ -43,6 +38,6 @@ class ThumbnailFilter implements FilterInterface
     public function filterDump(AssetInterface $asset)
     {
         $image = $this->imagine->load($asset->getContent());
-        $asset->setContent($image->thumbnail($this->size, $this->mode, $this->filter));
+        $asset->setContent($this->filter->apply($image));
     }
 }
