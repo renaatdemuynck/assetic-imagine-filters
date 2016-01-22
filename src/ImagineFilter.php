@@ -17,7 +17,7 @@ class ImagineFilter implements AsseticFilterInterface
     protected $filter;
 
     /**
-     * Constructs the filter with given Imagine image and Imagine filter 
+     * Constructs the filter with given Imagine image and Imagine filter
      *
      * @param ImagineInterface $imagine
      * @param ImagineFilterInterface $filter
