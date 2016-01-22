@@ -12,14 +12,14 @@ class WebOptimizationFilter extends ImagineFilter
 {
 
     /**
-     * Constructs the WebOptimization filter with given format and options
+     * Constructs the WebOptimization filter with given options
      *
      * @param ImagineInterface $imagine
      * @param string $format
      * @param array $options
      */
-    public function __construct(ImagineInterface $imagine, $path = null, array $options = array())
+    public function __construct(ImagineInterface $imagine, array $options = array())
     {
-        parent::__construct($imagine, new WebOptimization($path, $options));
+        parent::__construct($imagine, new WebOptimization(null, $options));
     }
 }
