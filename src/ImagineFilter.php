@@ -7,9 +7,9 @@ use Imagine\Image\ImagineInterface;
 use Imagine\Filter\FilterInterface as ImagineFilterInterface;
 
 /**
- * Abstract filter
+ * Base filter for Imagine
  */
-class AbstractImagineFilter implements AsseticFilterInterface
+class ImagineFilter implements AsseticFilterInterface
 {
 
     protected $imagine;
@@ -17,9 +17,10 @@ class AbstractImagineFilter implements AsseticFilterInterface
     protected $filter;
 
     /**
-     * Constructor
+     * Constructs the filter with given Imagine image and Imagine filter 
      *
      * @param ImagineInterface $imagine
+     * @param ImagineFilterInterface $filter
      */
     public function __construct(ImagineInterface $imagine, ImagineFilterInterface $filter)
     {

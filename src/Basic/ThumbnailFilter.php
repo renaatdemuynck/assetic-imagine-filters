@@ -1,7 +1,7 @@
 <?php
 namespace RDM\Assetic\Filter\Basic;
 
-use RDM\Assetic\Filter\AbstractImagineFilter;
+use RDM\Assetic\Filter\ImagineFilter;
 use Imagine\Image\ImagineInterface;
 use Imagine\Image\BoxInterface;
 use Imagine\Image\ImageInterface;
@@ -10,7 +10,7 @@ use Imagine\Filter\Basic\Thumbnail;
 /**
  * A thumbnail filter
  */
-class ThumbnailFilter extends AbstractImagineFilter
+class ThumbnailFilter extends ImagineFilter
 {
 
     /**
