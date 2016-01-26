@@ -1,5 +1,5 @@
 <?php
-namespace RDM\Assetic\Filter\Advanced;
+namespace RDM\Assetic\Filter\Imagine\Advanced;
 
 use RDM\Assetic\Filter\ImagineFilter;
 use Imagine\Image\ImagineInterface;
